@@ -127,6 +127,7 @@ nvm -v
 ```
 
 #### Node.js
+
 1 Install the required version of Node.js.
 ```
 nvm install 14.18.0
@@ -138,6 +139,29 @@ nvm alias default 14.18.0
 3 Verify that Node.js is installed and working. The following line should return a version number.
 ```
 node -v
+```
+
+#### Yarn
+
+1 Add the yarn gpg keys.
+```
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+```
+2 Add the yarn repository.
+```
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+```
+3 Update the system repositories.
+```
+sudo apt update
+```
+4 Install yarn. Because we have installed Node.js with NVM we don't need to install it again with yarn. 
+```
+sudo apt install --no-install-recommends yarn
+```
+5 Verify that yarn is installed and working. The following line should return a version number.
+```
+yarn --version
 ```
 
 #### PostreSQL dependencies
