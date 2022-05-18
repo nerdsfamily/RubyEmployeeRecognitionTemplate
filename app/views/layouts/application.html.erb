@@ -11,6 +11,24 @@
   </head>
 
   <body>
+    <a href="/">
+      <img src="https://www.visuality.pl/assets/logo-black-86014939cc717813d71dfc4f00de8cbb5085c54a90a62134625accc472142fe0.png" alt="Logo" width="200" height="auto">
+    </a>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
+    <nav>
+      <h4>Navigation</h4>
+      <ul>
+        <% if !employee_signed_in? %>
+          <li><%= link_to 'Sign in', new_employee_session_path %></li>
+          <li><%= link_to 'Sign up', new_employee_registration_path %></li>
+        <% else %>
+          <li><%= link_to 'Sign out', destroy_employee_session_path, method: :delete %></li>
+        <% end %>
+      </ul>
+    </nav>
+
     <%= yield %>
   </body>
 </html>
